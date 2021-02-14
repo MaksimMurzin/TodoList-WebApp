@@ -15,10 +15,10 @@ let date = new Date();
 let today = date.toLocaleDateString("en-US", options);
 
 let items = ["eat", "sleep", "repeat"];
-app.set("view engine", "ejs");
 
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("list", { listOfItems: items, dateToday: today });
